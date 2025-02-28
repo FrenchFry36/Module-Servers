@@ -5,6 +5,8 @@
 import express from "express";
 //load the quotes JSON
 import fs from "fs";
+import cors from "cors";
+// const cors = require("cors");
 
 // Read and parse the JSON file
 const quotes = JSON.parse(fs.readFileSync("./quotes.json", "utf-8"));
@@ -44,6 +46,8 @@ app.get("/quotes/search", (request, response) => {
 
   response.json(filteredQuotes);
 });
+
+app.use(cors());
 //...END OF YOUR CODE
 
 //You can use this function to pick one element at random from a given array
