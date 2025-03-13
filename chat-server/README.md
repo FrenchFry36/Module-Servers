@@ -16,14 +16,14 @@ In the optional 'React' part of this challenge, you also make a React app which 
 
 At this first level, your API must allow a client to:
 
-- [ ] Create a new message
-- [ ] Read all messages
-- [ ] Read one message specified by an ID
+- [V] Create a new message
+- [V] Read all messages
+- [V] Read one message specified by an ID
 - [ ] Delete a message, by ID
 
-* [ ] All message content should be passed as JSON.
+* [V] All message content should be passed as JSON.
 
-* [ ] Your routes should match the patterns established in class (RESTful). See the later spoiler section "Correct Routes" if you need the answer.
+* [V] Your routes should match the patterns established in class (RESTful). See the later spoiler section "Correct Routes" if you need the answer.
 
 You can use [this chat tester client](https://cyf-chat-tester.netlify.com/) to test your routes.
 
