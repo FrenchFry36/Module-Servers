@@ -19,7 +19,7 @@ At this first level, your API must allow a client to:
 - [V] Create a new message
 - [V] Read all messages
 - [V] Read one message specified by an ID
-- [ ] Delete a message, by ID
+- [V] Delete a message, by ID
 
 * [V] All message content should be passed as JSON.
 

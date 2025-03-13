@@ -8,5 +8,15 @@
     "id": 1,
     "from": "Lisa",
     "text": "Hi, sorry"
+  },
+  {
+    "id": 2,
+    "from": "Den",
+    "text": "Hi, I'm Den"
+  },
+  {
+    "id": 3,
+    "from": "Sam`",
+    "text": "Big guy"
   }
 ]
