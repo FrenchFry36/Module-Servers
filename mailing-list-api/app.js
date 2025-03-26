@@ -71,7 +71,7 @@ app.delete("/lists/:name", (req, res) => {
     res.status(404).send("List not found");
   } else {
     lists.delete(listName);
-    res.status(200).send("List deleted");
+    res.status(204).send();
   }
 });
 
