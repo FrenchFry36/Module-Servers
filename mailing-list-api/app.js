@@ -16,8 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/lists", (req, res) => {
-  const listsArray = Array.from(lists.keys()); // creates list of keys
-  res.status(200).json(listsArray); // returns keys
+  res.status(200).json(Array.from(lists.keys())); // returns keys
 });
 
 app.get("/lists/:name", (req, res) => {
@@ -31,22 +30,37 @@ app.get("/lists/:name", (req, res) => {
   }
 });
 
-// Create & update
-app.put("/lists/:name", (req, res) => {
-  const listName = req.params.name;
+// Create
+app.post("/lists", (req, res) => {
   const { name, members } = req.body;
 
-  if (name !== listName) {
-    return res.status(400).send("List name in path and body do not match");
+  if (!name || !Array.isArray(members)) {
+    return res.status(400).send("Invalid request body");
   }
 
-  if (lists.has(listName)) {
-    lists.set(listName, { name, members });
-    res.status(200).send("List updated");
-  } else {
-    lists.set(listName, { name, members });
-    res.status(200).send("List created");
+  if (lists.has(name)) {
+    return res.status(409).send("List already exists");
   }
+
+  lists.set(name, { members });
+  res.status(201).send("List created");
+});
+
+// Update
+app.put("/lists/:name", (req, res) => {
+  const listName = req.params.name;
+  const { members } = req.body;
+
+  if (!Array.isArray(members)) {
+    return res.status(400).send("Invalid request body");
+  }
+
+  if (!lists.has(listName)) {
+    return res.status(404).send("List not found");
+  }
+
+  lists.set(listName, { members });
+  res.status(200).send("List updated");
 });
 
 // Delete
